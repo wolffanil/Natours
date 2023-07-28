@@ -19,7 +19,6 @@ mongoose
     useFindAndModify: false,
   })
   .then(() => {
-    // console.log(con.connections);
     console.log('DB successful');
   });
 
@@ -46,8 +45,6 @@ const deleteDate = async () => {
     await Tour.deleteMany();
     await User.deleteMany();
     await Review.deleteMany();
-
-    console.log('date delete');
   } catch (err) {
     console.log(err);
   }

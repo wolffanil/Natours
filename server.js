@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 
-// process.on('uncaughtException', (err) => {
-//   console.log(err.name, err.message);
-//   server.close(() => {
-//     process.exit(1);
-//   });
-// });
+process.on('uncaughtException', (err) => {
+  console.log(err.name, err.message);
+  server.close(() => {
+    process.exit(1);
+  });
+});
 
 const app = require('./app');
 
@@ -23,7 +23,6 @@ mongoose
     useFindAndModify: false,
   })
   .then(() => {
-    // console.log(con.connections);
     console.log('DB successful');
   });
 

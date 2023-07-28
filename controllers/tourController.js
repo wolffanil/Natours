@@ -186,7 +186,6 @@ exports.getDistances = catchAsync(async (req, res, next) => {
 
   const multiplier = unit === 'mi' ? 0.000621371 : 0.001;
 
-  console.log(lat, lng);
   if (!lat || !lng) {
     next(
       new AppError(

@@ -163,11 +163,11 @@ tourSchema.pre(/^find/, function (next) {
   next();
 });
 
-tourSchema.post(/^find/, function (docs, next) {
-  console.log(`query took ${Date.now() - this.start} mil`);
+// tourSchema.post(/^find/, function (docs, next) {
+//   console.log(`query took ${Date.now() - this.start} mil`);
 
-  next();
-});
+//   next();
+// });
 
 //aggregate middleware
 
