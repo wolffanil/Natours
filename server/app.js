@@ -19,40 +19,7 @@ const bookingRouter = require('./routes/bookingRouter');
 
 const app = express();
 
-/// Pug
-// app.use((req, res, next) => {
-//   res.setHeader(
-//     'Content-Security-Policy',
-//     "script-src 'self' https://js.stripe.com/v3/"
-//   );
-//   next();
-// });
-
-// app.use(
-//   helmet.contentSecurityPolicy({
-//     directives: {
-//       defaultSrc: ["'self'"],
-//       scriptSrc: ["'self'", 'https://js.stripe.com/v3/'],
-//       // включите другие директивы по мере надобности
-//     },
-//   })
-
-// app.use((req, res, next) => {
-//   res.setHeader(
-//     'Content-Security-Policy',
-//     "script-src 'self' https://js.stripe.com/v3/"
-//   ); // Добавьте скрипт Stripe в allow-list 'script-src'
-//   // helmet.contentSecurityPolicy({
-//   //   directives: {
-//   //     ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-//   //     'script-src': ["'self'", 'https://js.stripe.com/v3/'],
-//   //     // Дополнительные директивы по мере необходимости
-//   //   },
-//   // });
-//   // res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
-//   // res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
-//   next();
-// });
+app.enable('trust proxy');
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
