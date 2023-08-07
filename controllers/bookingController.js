@@ -6,6 +6,7 @@ const factory = require('./handleFactory');
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   const tour = await Tour.findById(req.params.tourId);
+  console.log(req.params.tourId);
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
@@ -44,6 +45,19 @@ exports.createBookingCheackout = catchAsync(async (req, res, next) => {
   if (!tour && !user && !price) return next();
 
   await Booking.create({ tour, user, price });
+
+  // if (req.cookies.myPaidTours) {
+  //   let paidTours = req.cookies.myPaidTours.split(', ');
+  //   paidTours += `, ${name}`;
+  //   res.cookie('myPaidTours', paidTours, {
+  //     httpOnly: true,
+  //   });
+  // } else {
+  //   const paidTour = `${name}`;
+  //   res.cookie('myPaidTours', paidTour, {
+  //     httpOnly: true,
+  //   });
+  // }
 
   res.redirect(req.originalUrl.split('?')[0]);
 });

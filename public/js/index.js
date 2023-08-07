@@ -9,7 +9,7 @@ const form = document.querySelector('.form--login');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const updateForm = document.querySelector('.form-user-data');
 const updatePasswordForm = document.querySelector('.form-user-settings');
-// const bookBtn = document.getElementById('book-tour');
+const bookBtn = document.getElementById('book-tour');
 const signUpForm = document.querySelector('.form--singup');
 
 if (map) {
@@ -66,14 +66,12 @@ if (updatePasswordForm) {
   });
 }
 
-// if (bookBtn) {
-//   bookTour.addEventListener('click', (e) => {
-//     e.target.textContent = 'PROCESING...';
-//     const { tourId } = e.target.dataset;
-
-//     bookTour(tourId);
-//   });
-// }
+if (bookBtn)
+  bookBtn.addEventListener('click', (e) => {
+    e.target.textContent = 'Processing...';
+    const { tourId } = e.target.dataset;
+    bookTour(tourId);
+  });
 
 if (signUpForm) {
   signUpForm.addEventListener('submit', (e) => {

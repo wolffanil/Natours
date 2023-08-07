@@ -8,7 +8,7 @@ const {
   getMyTours,
   getSingUpForm,
 } = require('../controllers/viewsController');
-const { protect, isLogged, logout } = require('../controllers/authController');
+const { protect, isLogged } = require('../controllers/authController');
 const { createBookingCheackout } = require('../controllers/bookingController');
 
 const router = express.Router();

@@ -22,9 +22,19 @@ exports.getTour = catchAsync(async (req, res, next) => {
 
   if (!tour) return next(new AppError('There in no tour with that name', 404));
 
+  let myPaidTour = false;
+
+  if (res.locals.user) {
+    myPaidTour = await Booking.findOne({
+      tour: tour._id,
+      user: res.locals.user._id,
+    });
+  }
+
   res.status(200).render('tour', {
     title: `${tour.name} Tour`,
     tour,
+    myPaidTour,
   });
 });
 
