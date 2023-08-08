@@ -10,7 +10,7 @@ const {
   alerts,
 } = require('../controllers/viewsController');
 const { protect, isLogged } = require('../controllers/authController');
-const { createBookingCheackout } = require('../controllers/bookingController');
+// const { createBookingCheackout } = require('../controllers/bookingController');
 
 const router = express.Router();
 
@@ -18,7 +18,7 @@ const router = express.Router();
 
 router.use(alerts);
 
-router.get('/', createBookingCheackout, isLogged, getOverview);
+router.get('/', isLogged, getOverview);
 router.get('/tour/:slug', isLogged, getTour);
 router.get('/login', isLogged, getLoginForm);
 router.get('/me', protect, getMe);
